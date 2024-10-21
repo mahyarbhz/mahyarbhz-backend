@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('public_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            
+            $table->unsignedBigInteger('public_category_group_id');
+            $table->foreign('public_category_group_id')
+                  ->references('id')
+                  ->on('public_category_groups')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

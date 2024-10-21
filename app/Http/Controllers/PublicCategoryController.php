@@ -26,7 +26,7 @@ class PublicCategoryController extends Controller
     /**
      * Return the specified resource.
      */
-    public function show(PublicCategory $publicCategory)
+    public function get(PublicCategory $publicCategory)
     {
         //
     }
